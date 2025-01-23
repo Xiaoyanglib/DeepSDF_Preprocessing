@@ -1,0 +1,29 @@
+Package: pangolin
+Version: 0.9.2
+Depends: eigen3, glew, libepoxy, palsigslot, vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 68de62ae105fa21906d7af6736591079ee939d89e342d948b48b7fb1bcf79ff9
+Description: Lightweight GUI Library
+Default-Features: ffmpeg, jpeg, png
+
+Package: pangolin
+Feature: ffmpeg
+Depends: ffmpeg
+Architecture: x64-windows
+Multi-Arch: same
+Description: Build support for ffmpeg video input
+
+Package: pangolin
+Feature: jpeg
+Depends: libjpeg-turbo
+Architecture: x64-windows
+Multi-Arch: same
+Description: Build support for libjpeg image input
+
+Package: pangolin
+Feature: png
+Depends: libpng
+Architecture: x64-windows
+Multi-Arch: same
+Description: Build support for libpng image input

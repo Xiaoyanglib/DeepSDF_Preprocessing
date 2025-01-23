@@ -1,0 +1,7 @@
+Package: nanoflann
+Version: 1.6.3
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: dc96aac34851d5ed69a76746a320a43a2d6254ab9d0eca05e5f4e10ee60aa69c
+Description: nanoflann is a C++11 header-only library for building KD-Trees of datasets with different topologies: R2, R3 (point clouds), SO(2) and SO(3) (2D and 3D rotation groups).

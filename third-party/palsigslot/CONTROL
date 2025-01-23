@@ -1,0 +1,7 @@
+Package: palsigslot
+Version: 1.2.2
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 848a014a2f8b1a3d274b82068e24402d771bf6bd4adbc52ec00a43e534d731bb
+Description: A header-only, thread safe implementation of signal-slots for C++.
