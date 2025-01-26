@@ -13,7 +13,6 @@
 #include<typeinfo>
 #include<iostream>
 #include<cassert>
-#define ZLIB_CONST
 #undef FAR
 #include<zlib.h>
 #include<map>

@@ -94,12 +94,12 @@ in vec3 normal_world;
 in vec3 normal_camera;
 in vec4 xyz_world;
 in vec4 xyz_camera;
-flat in int primitiveID ;
+//in int gl_PrimitiveID ;
 
-uniform vec2 slant_thr;
-out vec4 ttt;
-uniform mat4 V;
-uniform mat4 ToWorld;
+//uniform vec2 slant_thr;
+//out vec4 ttt;
+//uniform mat4 V;
+//uniform mat4 ToWorld;
 
 layout(location = 0) out vec4 FragColor;
 layout(location = 1) out vec4 FragColor2;
@@ -130,10 +130,10 @@ void main(){
         }
 
         FragColor = xyz_world;
-        FragColor.w = primitiveID + 1.0f;
+        FragColor.w = gl_PrimitiveID + 1.0f;
 
         FragColor2 = vec4(normalize(normal_world_cor),1);
-        FragColor2.w = primitiveID + 1.0f;
+        FragColor2.w = gl_PrimitiveID + 1.0f;
 
     }
 

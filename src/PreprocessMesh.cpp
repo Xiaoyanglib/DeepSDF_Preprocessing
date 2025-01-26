@@ -272,9 +272,9 @@ void writeSDFToPLY(
       sdf = -sdf;
     int sdf_i = std::min((int)(sdf * 255), 255);
     if (!neg_only && pos)
-      plyFile << v[0] << " " << v[1] << " " << v[2] << " " << 0 << " " << 0 << " " << sdf_i << "\n";
+      plyFile << v[0] << " " << v[1] << " " << v[2] << " " << 255 << " " << 0 << " " << 0 << "\n";
     if (!pos_only && neg)
-      plyFile << v[0] << " " << v[1] << " " << v[2] << " " << sdf_i << " " << 0 << " " << 0 << "\n";
+      plyFile << v[0] << " " << v[1] << " " << v[2] << " " << 0 << " " << 0 << " " << 255 << "\n";
   }
   plyFile.close();
 }
@@ -472,9 +472,9 @@ int main(int argc, char** argv) {
     prog.Bind();
     prog.SetUniform("MVP", s_cam2.GetProjectionModelViewMatrix());
     prog.SetUniform("V", s_cam2.GetModelViewMatrix());
-    prog.SetUniform("ToWorld", s_cam2.GetModelViewMatrix().Inverse());
-    prog.SetUniform("slant_thr", -1.0f, 1.0f);
-    prog.SetUniform("ttt", 1.0, 0.0, 0.0, 1.0);
+    //prog.SetUniform("ToWorld", s_cam2.GetModelViewMatrix().Inverse());
+    //prog.SetUniform("slant_thr", -1.0f, 1.0f);
+    //prog.SetUniform("ttt", 1.0, 0.0, 0.0, 1.0);
     pangolin::GlDraw(prog, gl_geom, nullptr);
     prog.Unbind();
 
@@ -550,7 +550,7 @@ int main(int argc, char** argv) {
   std::cout << elapsed << std::endl;
 
   if (save_ply) {
-    writeSDFToPLY(xyz, sdf, plyFileNameOut, false, true);
+    writeSDFToPLY(xyz, sdf, plyFileNameOut, false, false);
   }
 
   std::cout << "num points sampled: " << xyz.size() << std::endl;
