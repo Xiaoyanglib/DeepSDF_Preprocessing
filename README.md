@@ -2,7 +2,7 @@
 
 This is my personal modification to the code in the data preprocessing section of project [DeepSDF][1], which works for the latest version of [Pangolin (0.9.2)][2].
 
-![chair](test\chair.png)
+![chair](test/chair.png)
 
 ## Platform
 
