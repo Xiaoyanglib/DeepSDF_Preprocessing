@@ -31,7 +31,7 @@ make -j
 Once this is done there should be two executables in the `DeepSDF_Preprocessing/bin` directory, one for surface sampling and one for SDF sampling. With the binaries, the dataset can be preprocessed using `preprocess_data.py`. To preprocess the mesh data for testing, run:
 
 ```
-.\bin\Release\PreprocessMesh.exe -m test\chair.obj -o test\sample_chair.npz --ply test\samle_chair.ply
+.\bin\Release\PreprocessMesh.exe -m test\chair.obj -o test\sample_chair.npz --ply test\sample_chair.ply
 ```
 
 ## What I've Modified
@@ -45,7 +45,7 @@ The following modifications are based on this [issue][6]:
     * Extended the `target_link_libraries` to `target_link_libraries(PreprocessMesh PRIVATE pango_core pango_display pango_geometry pango_glgeometry cnpy Eigen3::Eigen)`.
 
 The following modifications are based on this [issue][7]:
-* Commented out the variable `in int gl_PrimitiveID`.
+* Commented out the `gl_PrimitiveID` variable declaration.
 
 The following modifications are from my own changes:
 * Added `#undef FAR` before `#include<zlib.h>` in `cnpy.h`.
@@ -54,7 +54,7 @@ The following modifications are from my own changes:
 
 
 
-## Some Bugs
+## Known Issues
 
 The data can be preprocessed, but there are still some bugs. If anyone knows how to fix them, please open an issue. Here are the bugs:
 
@@ -63,8 +63,7 @@ In: path\to\DeepSDF_Proprecessing\third-party\pangolin\include\pangolin/gl/gl.hp
 
 `Attribute name doesn't exist for program (normal)`
 
-The OpenGL error does not interrupt execution; it only continuously triggers warnings. I commented out the `cerr` section in the `inline GLint GlSlProgram::GetAttributeHandle` function in `glsl.hpp` during Pangolin configuration to prevent excessive error messages.
-
+The OpenGL error does not interrupt execution; it only continuously triggers warnings. To reduce excessive error messages, I commented out the `cerr` section in the `inline GLint GlSlProgram::GetAttributeHandle` function within `glsl.hpp` during Pangolin configuration.
 ## License
 
 DeepSDF_Preprocessing is relased under the MIT License. See the [LICENSE file][8] for more details.
