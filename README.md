@@ -52,7 +52,10 @@ The following modifications are from my own changes:
 * Added `#include <wtypes.h>` and `#define uint UINT` in `Utils.h`.
 * Commented out the uniform names `ToWorld, slant_thr, ttt` because they are never used in shader.
 
-
+Similar to the issues listed in [#19][8], [#25][9], and [#35][7], the `preprocess_data.py` script from [DeepSDF][1] failed to generate `.npz` files on my local development environment. To address this, I developed a simple batch processing tool using the C++17 standard, which includes the following features:
+* Relies only on the C++ standard library and the [nlohmann][10] library.
+* Processes data in batches (default: 8), and the batch size can be adjusted based on device performance and UI responsiveness.
+* Requires compilation, unlike the Python script.
 
 ## Known Issues
 
@@ -66,7 +69,7 @@ In: path\to\DeepSDF_Proprecessing\third-party\pangolin\include\pangolin/gl/gl.hp
 The OpenGL error does not interrupt execution; it only continuously triggers warnings. To reduce excessive error messages, I commented out the `cerr` section in the `inline GLint GlSlProgram::GetAttributeHandle` function within `glsl.hpp` during Pangolin configuration.
 ## License
 
-DeepSDF_Preprocessing is relased under the MIT License. See the [LICENSE file][8] for more details.
+DeepSDF_Preprocessing is relased under the MIT License. See the [LICENSE file][11] for more details.
 
 
 [1]: https://github.com/facebookresearch/DeepSDF
@@ -76,5 +79,8 @@ DeepSDF_Preprocessing is relased under the MIT License. See the [LICENSE file][8
 [5]: https://eigen.tuxfamily.org
 [6]: https://github.com/stevenlovegrove/Pangolin/issues/725
 [7]: https://github.com/facebookresearch/DeepSDF/issues/35
-[8]: https://github.com/Xiaoyanglib/DeepSDF_Preprocessing/blob/main/LICENSE
+[8]: https://github.com/facebookresearch/DeepSDF/issues/19
+[9]: https://github.com/facebookresearch/DeepSDF/issues/25
+[10]: https://github.com/nlohmann/json
+[11]: https://github.com/Xiaoyanglib/DeepSDF_Preprocessing/blob/main/LICENSE
 
