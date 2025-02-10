@@ -140,12 +140,12 @@ int main() {
         std::vector<std::string> additional_general_args;
         if (surface_sampling) {
             executable = deepsdf_dir / "bin" / "SampleVisibleMeshSurface.exe";
-            subdir = "surface_samples";
+            subdir = "SurfaceSamples";
             extension = ".ply";
         }
         else {
             executable = deepsdf_dir / "bin" / "PreprocessMesh.exe";
-            subdir = "sdf_samples";
+            subdir = "SdfSamples";
             extension = ".npz";
             if (test_sampling) {
                 additional_general_args.push_back("-t");
@@ -177,7 +177,7 @@ int main() {
         // Create normalization parameter directory for surface sampling mode
         fs::path normalization_param_dir;
         if (surface_sampling) {
-            normalization_param_dir = params.data_dir / "normalization_params" / params.source_name;
+            normalization_param_dir = params.data_dir / "NormalizationParameters" / params.source_name;
             fs::create_directories(normalization_param_dir);
         }
 
